@@ -1,0 +1,112 @@
+
+"name": "VectorMeanings",
+"description": null,
+"generative_config": null,
+"inverted_index_config": {
+  "bm25": {
+    "b": 0.75,
+    "k1": 1.2
+  },
+  "cleanup_interval_seconds": 60,
+  "index_null_state": false,
+  "index_property_length": false,
+  "index_timestamps": false,
+  "stopwords": {
+    "preset": "en",
+    "additions": null,
+    "removals": null
+  }
+},
+"multi_tenancy_config": {
+  "enabled": false,
+  "auto_tenant_creation": false,
+  "auto_tenant_activation": false
+},
+"properties": [
+  {
+    "name": "vector_meanings",
+    "description": null,
+    "data_type": "text",
+    "index_filterable": true,
+    "index_range_filters": false,
+    "index_searchable": true,
+    "nested_properties": null,
+    "tokenization": "word",
+    "vectorizer_config": null,
+    "vectorizer": "none"
+  },
+  {
+    "name": "meaning_id",
+    "description": null,
+    "data_type": "int",
+    "index_filterable": true,
+    "index_range_filters": false,
+    "index_searchable": false,
+    "nested_properties": null,
+    "tokenization": null,
+    "vectorizer_config": null,
+    "vectorizer": "none"
+  },
+  {
+    "name": "word_id",
+    "description": null,
+    "data_type": "int",
+    "index_filterable": true,
+    "index_range_filters": false,
+    "index_searchable": false,
+    "nested_properties": null,
+    "tokenization": null,
+    "vectorizer_config": null,
+    "vectorizer": "none"
+  }
+],
+"references": [],
+"replication_config": {
+  "factor": 1,
+  "async_enabled": false
+},
+"reranker_config": null,
+"sharding_config": {
+  "virtual_per_physical": 128,
+  "desired_count": 1,
+  "actual_count": 1,
+  "desired_virtual_count": 128,
+  "actual_virtual_count": 128,
+  "key": "_id",
+  "strategy": "hash",
+  "function": "murmur3"
+},
+"vector_index_config": null,
+"vector_index_type": null,
+"vectorizer_config": null,
+"vectorizer": null,
+"vector_config": {
+  "vector_meanings": {
+    "vectorizer": {
+      "vectorizer": "text2vec-ollama",
+      "model": {
+        "apiEndpoint": "http://host.docker.internal:11434",
+        "model": "nomic-embed-text",
+        "vectorizeClassName": true
+      },
+      "source_properties": [
+        "meanings"
+      ]
+    },
+    "vector_index_config": {
+      "quantizer": null,
+      "cleanup_interval_seconds": 300,
+      "distance_metric": "cosine",
+      "dynamic_ef_min": 100,
+      "dynamic_ef_max": 500,
+      "dynamic_ef_factor": 8,
+      "ef": -1,
+      "ef_construction": 128,
+      "flat_search_cutoff": 40000,
+      "max_connections": 32,
+      "skip": false,
+      "vector_cache_max_objects": 1000000000000
+    }
+  }
+}
+}
