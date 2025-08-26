@@ -42,3 +42,35 @@ I grouped the disambigation and meaning together when vectorizing but there are 
 
 3. Once vectorized, type in a query and see if your results are relevant and valuable. 
 
+## Example Output
+
+```python
+query = "words originated from Toronto"
+```
+
+gives results like:
+
+```
+Query: words originated from Toronto?
+Score: 0.85
+Word ID: 1234
+Word: Ahlie
+Meaning: Tdot/Toronto slang for "right?"
+Example: You're reaching my crib tonight ahlie?
+--------------------
+Query: words originated from Toronto?
+Score: 0.82
+Word ID: 2345
+Word: Are you dumb or are you dumb
+Meaning: Toronto slang, you tell someone when they’re acting stupid, or tryna be something they’re not. Pretty casually used, not that serious.
+Example: are u dumb? You know who mans is? I’m not afraid of no wasteman!
+--------------------
+Query: words originated from Toronto?
+Score: 0.82
+Word ID: 3456
+Word: nyeah eh
+Meaning: A word the Toronto mandem use instead of OH REALLY usually used to confront someone or start a argument.
+Example: Sayin He got that new LV belt from his dukes”
+“nyeah eh sayin I’m bout to stain the man
+--------------------
+```
